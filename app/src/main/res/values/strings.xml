@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">CadastroProdutos</string>
+    <string name="app_name">Cadastro de produtos</string>
+
+    <string name="produtos">Produtos</string>
+    <string name="marcas">Marcas</string>
+    <string name="categorias">Categorias</string>
+    <string name="cores">Cores</string>
 </resources>
