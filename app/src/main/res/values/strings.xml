@@ -2,24 +2,30 @@
     <string name="app_name">Cadastro de produtos</string>
 
     <string name="gerenciar_produtos">Gerenciar produtos</string>
+    <string name="listar_produtos">Listar produtos</string>
     <string name="produtos">Produtos</string>
 
     <string name="gerenciar_marcas">Gerenciar marcas</string>
+    <string name="listar_marcas">Listar marcas</string>
     <string name="marcas">Marcas</string>
     <string name="marca">Marca</string>
 
     <string name="gerenciar_categorias">Gerenciar categorias</string>
+    <string name="listar_categorias">Listar categorias</string>
     <string name="categorias">Categorias</string>
     <string name="categoria">Categoria</string>
 
     <string name="gerenciar_cores">Gerenciar cores</string>
+    <string name="listar_cores">Listar cores</string>
     <string name="cores">Cores</string>
     <string name="cor">Cor</string>
 
     <string name="descricao">Descrição</string>
 
     <string name="adicionar">Adicionar</string>
-    <string name="listar">Listar</string>
     <string name="salvar">Salvar</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="listar">Listar</string>
 
 </resources>
