@@ -1,4 +1,4 @@
-package br.com.matheussbrenner.cadastroprodutos.produtos;
+package br.com.matheussbrenner.cadastroprodutos.marcas;
 
 import android.os.Bundle;
 
@@ -24,24 +24,24 @@ public class MainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.produto_fragment_main, container, false);
+        View view = inflater.inflate(R.layout.marca_fragment_main, container, false);
 
         if (savedInstanceState == null) {
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_produto, new ListarFragment()).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_marca, new ListarFragment()).commit();
         }
-        Button btnAdicionar = view.findViewById(R.id.button_adicionar_produto);
+        Button btnAdicionar = view.findViewById(R.id.button_adicionar_marca);
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_produto, new AdicionarFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_marca, new AdicionarFragment()).commit();
             }
         });
 
-        Button btnListar = view.findViewById(R.id.button_listar_produto);
+        Button btnListar = view.findViewById(R.id.button_listar_marca);
         btnListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_produto, new ListarFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_marca, new ListarFragment()).commit();
             }
         });
 

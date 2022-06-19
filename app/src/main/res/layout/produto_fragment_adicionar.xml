@@ -22,7 +22,7 @@ tools:context=".produtos.AdicionarFragment">
             android:textStyle="bold"
             android:padding="10dp"
             android:textAlignment="center"
-            android:text="@string/adicionar" />
+            android:text="@string/adicionar_produtos" />
 
         <TextView
             android:layout_width="match_parent"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".produtos.MainFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".marcas.MainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@ tools:context=".produtos.MainFragment">
             android:textAlignment="center"
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
-            android:text="@string/gerenciar_produtos" />
+            android:text="@string/gerenciar_marcas" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@ tools:context=".produtos.MainFragment">
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_listar_produto"
+                android:id="@+id/button_listar_marca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
@@ -34,7 +34,7 @@ tools:context=".produtos.MainFragment">
                 android:text="@string/listar" />
 
             <Button
-                android:id="@+id/button_adicionar_produto"
+                android:id="@+id/button_adicionar_marca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -43,10 +43,11 @@ tools:context=".produtos.MainFragment">
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/frame_produto"
+            android:id="@+id/frame_marca"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </FrameLayout>
 
     </LinearLayout>
+
 </FrameLayout>

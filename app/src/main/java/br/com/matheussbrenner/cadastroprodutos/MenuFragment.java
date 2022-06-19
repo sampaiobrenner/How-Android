@@ -23,9 +23,7 @@ public class MenuFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_menu, container, false);
     }
 
@@ -38,7 +36,7 @@ public class MenuFragment extends Fragment {
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_produtos:
-                Toast.makeText(getActivity(), "Menu produtos", Toast.LENGTH_LONG).show();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new br.com.matheussbrenner.cadastroprodutos.produtos.MainFragment()).commit();
                 break;
             case R.id.menu_categorias:
                 Toast.makeText(getActivity(), "Menu categorias", Toast.LENGTH_LONG).show();
@@ -47,7 +45,7 @@ public class MenuFragment extends Fragment {
                 Toast.makeText(getActivity(), "Menu cores", Toast.LENGTH_LONG).show();
                 break;
             case R.id.menu_marcas:
-                Toast.makeText(getActivity(), "Menu marcas", Toast.LENGTH_LONG).show();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new br.com.matheussbrenner.cadastroprodutos.marcas.MainFragment()).commit();
                 break;
         }
         return super.onOptionsItemSelected(item);

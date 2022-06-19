@@ -1,4 +1,4 @@
-package br.com.matheussbrenner.cadastroprodutos.produtos;
+package br.com.matheussbrenner.cadastroprodutos.marcas;
 
 import android.os.Bundle;
 
@@ -23,6 +23,6 @@ public class AdicionarFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.produto_fragment_adicionar, container, false);
+        return inflater.inflate(R.layout.marca_fragment_adicionar, container, false);
     }
 }
