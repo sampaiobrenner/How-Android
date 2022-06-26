@@ -50,13 +50,13 @@ public class AdicionarFragment extends Fragment {
         Marca m = new Marca();
         m.setDescricao(etDescricao.getText().toString());
         databaseHelper.createMarca(m);
-        Toast.makeText(getActivity(), "Marca salva", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), R.string.registro_adicionado_com_sucesso, Toast.LENGTH_LONG).show();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_marca, new ListarFragment()).commit();
     }
 
     private boolean validar() {
         if (etDescricao.getText().toString().equals("")) {
-            Toast.makeText(getActivity(), "Por favor, informe o descrição da marca", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.informe_campo_descricao, Toast.LENGTH_LONG).show();
             return false;
         }
 

@@ -31,5 +31,12 @@
     <string name="excluir">Excluir</string>
     <string name="listar">Listar</string>
     <string name="adicionar">Adicionar</string>
+    <string name="registro_adicionado_com_sucesso">Registro adicionado com sucesso!</string>
+    <string name="informe_campo_descricao">Por favor, informe o campo descrição.</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="confirmacao_exclusao_registro">Você realmente deseja excluir o registro?</string>
+    <string name="registro_atualizado_com_sucesso">Registro atualizado com sucesso!</string>
+    <string name="registro_excluido_com_sucesso">Registro excluído com sucesso!</string>
 
 </resources>
