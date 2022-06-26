@@ -39,10 +39,10 @@ public class MenuFragment extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new br.com.matheussbrenner.cadastroprodutos.produtos.MainFragment()).commit();
                 break;
             case R.id.menu_categorias:
-                Toast.makeText(getActivity(), "Menu categorias", Toast.LENGTH_LONG).show();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new br.com.matheussbrenner.cadastroprodutos.categorias.MainFragment()).commit();
                 break;
             case R.id.menu_cores:
-                Toast.makeText(getActivity(), "Menu cores", Toast.LENGTH_LONG).show();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new br.com.matheussbrenner.cadastroprodutos.cores.MainFragment()).commit();
                 break;
             case R.id.menu_marcas:
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_main, new br.com.matheussbrenner.cadastroprodutos.marcas.MainFragment()).commit();
