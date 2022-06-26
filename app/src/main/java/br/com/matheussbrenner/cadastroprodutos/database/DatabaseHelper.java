@@ -9,19 +9,27 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import br.com.matheussbrenner.cadastroprodutos.R;
+import br.com.matheussbrenner.cadastroprodutos.cores.Cor;
 import br.com.matheussbrenner.cadastroprodutos.marcas.Marca;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "cadastroprodutos";
+
     private static final String TABLE_MARCA = "marca";
+    private static final String TABLE_COR = "cor";
 
     private static final String CREATE_TABLE_MARCA = "CREATE TABLE " + TABLE_MARCA + " (" +
             "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "descricao VARCHAR(100)); ";
 
+    private static final String CREATE_TABLE_COR = "CREATE TABLE " + TABLE_COR + " (" +
+            "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "descricao VARCHAR(100)); ";
+
     private static final String DROP_TABLE_MARCA = "DROP TABLE IF EXISTS " + TABLE_MARCA;
+    private static final String DROP_TABLE_COR = "DROP TABLE IF EXISTS " + TABLE_COR;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -30,15 +38,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_MARCA);
+        db.execSQL(CREATE_TABLE_COR);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(DROP_TABLE_MARCA);
+        db.execSQL(DROP_TABLE_COR);
         onCreate(db);
     }
 
-    /* Início CRUD  Marcas */
+    /* Início CRUD Marcas */
     public long createMarca (Marca m) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -83,5 +93,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return m;
     }
-    /* Fim CRUD Marca */
+    /* Fim CRUD Marcas */
+
+    /* Início CRUD Cores */
+    public long createCor (Cor c) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("descricao", c.getDescricao());
+        long id = db.insert(TABLE_COR, null, cv);
+        db.close();
+        return id;
+    }
+    public long updateCor (Cor c) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("descricao", c.getDescricao());
+        long id = db.update(TABLE_COR, cv,"_id = ?", new String[]{String.valueOf(c.getId())});
+        db.close();
+        return id;
+    }
+    public long deleteCor (Cor c) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long id = db.delete(TABLE_COR, "_id = ?", new String[]{String.valueOf(c.getId())});
+        db.close();
+        return id;
+    }
+    public void getAllCor (Context context, ListView lv) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"_id", "descricao"};
+        Cursor data = db.query(TABLE_COR, columns, null, null,null, null, "descricao");
+        int[] to = {R.id.textViewIdListarCor, R.id.textViewDescricaoListarCor, };
+        SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(context, R.layout.cor_item_list_view, data, columns, to, 0);
+        lv.setAdapter(simpleCursorAdapter);
+        db.close();
+    }
+    public Cor getByIdCor (int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"_id", "descricao"};
+        String[] args = {String.valueOf(id)};
+        Cursor data = db.query(TABLE_COR, columns, "_id = ?", args,null, null, null);
+        data.moveToFirst();
+        Cor c = new Cor();
+        c.setId(data.getInt(0));
+        c.setDescricao(data.getString(1));
+        data.close();
+        db.close();
+        return c;
+    }
+    /* Fim CRUD Cores */
 }
