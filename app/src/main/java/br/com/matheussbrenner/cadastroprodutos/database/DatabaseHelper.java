@@ -12,6 +12,7 @@ import br.com.matheussbrenner.cadastroprodutos.R;
 import br.com.matheussbrenner.cadastroprodutos.categorias.Categoria;
 import br.com.matheussbrenner.cadastroprodutos.cores.Cor;
 import br.com.matheussbrenner.cadastroprodutos.marcas.Marca;
+import br.com.matheussbrenner.cadastroprodutos.produtos.Produto;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -205,4 +206,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return c;
     }
     /* Fim CRUD Categorias */
+
+    /* Início CRUD Produtos */
+    public long createProduto (Produto p) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("descricao", p.getDescricao());
+        long id = db.insert(TABLE_PRODUTO, null, cv);
+        db.close();
+        return id;
+    }
+    public long updateProduto (Produto p) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("descricao", p.getDescricao());
+        long id = db.update(TABLE_PRODUTO, cv,"_id = ?", new String[]{String.valueOf(p.getId())});
+        db.close();
+        return id;
+    }
+    public long deleteProduto (Produto p) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long id = db.delete(TABLE_PRODUTO, "_id = ?", new String[]{String.valueOf(p.getId())});
+        db.close();
+        return id;
+    }
+    public void getAllProduto (Context context, ListView lv) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"_id", "descricao"};
+        Cursor data = db.query(TABLE_PRODUTO, columns, null, null,null, null, "descricao");
+        int[] to = {R.id.textViewIdListarProduto, R.id.textViewDescricaoListarProduto, };
+        SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(context, R.layout.produto_item_list_view, data, columns, to, 0);
+        lv.setAdapter(simpleCursorAdapter);
+        db.close();
+    }
+    public Produto getByIdProduto (int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"_id", "descricao"};
+        String[] args = {String.valueOf(id)};
+        Cursor data = db.query(TABLE_PRODUTO, columns, "_id = ?", args,null, null, null);
+        data.moveToFirst();
+        Produto p = new Produto();
+        p.setId(data.getInt(0));
+        p.setDescricao(data.getString(1));
+        data.close();
+        db.close();
+        return p;
+    }
+    /* Fim CRUD Produtos */
 }

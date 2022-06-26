@@ -48,7 +48,9 @@ tools:context=".produtos.AdicionarFragment">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:enabled="false"
+            android:text="Ainda não implementado!"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -61,7 +63,9 @@ tools:context=".produtos.AdicionarFragment">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:enabled="false"
+            android:text="Ainda não implementado!"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -74,7 +78,9 @@ tools:context=".produtos.AdicionarFragment">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:enabled="false"
+            android:text="Ainda não implementado!"/>
 
         <Button
             android:id="@+id/button_adicionar_produto"
