@@ -19,7 +19,7 @@ public class AdicionarFragment extends Fragment {
     private EditText etDescricao;
 
     public AdicionarFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
