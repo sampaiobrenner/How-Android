@@ -55,6 +55,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_COR);
         db.execSQL(CREATE_TABLE_CATEGORIA);
         db.execSQL(CREATE_TABLE_PRODUTO);
+
+        criarMarcasParaTestes(db);
+        criarCoresParaTestes(db);
+        criarCategoriasParaTestes(db);
+        criarProdutosParaTestes(db);
     }
 
     @Override
@@ -253,4 +258,100 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return p;
     }
     /* Fim CRUD Produtos */
+
+    private void criarMarcasParaTestes(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+
+        cv.put("descricao", "Dell");
+        db.insert(TABLE_MARCA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Samsung");
+        db.insert(TABLE_MARCA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Apple");
+        db.insert(TABLE_MARCA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "LG");
+        db.insert(TABLE_MARCA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Sony");
+        db.insert(TABLE_MARCA, null, cv);
+        cv.clear();
+    }
+
+    private void criarCoresParaTestes(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+
+        cv.put("descricao", "Amarelo");
+        db.insert(TABLE_COR, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Azul");
+        db.insert(TABLE_COR, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Verde");
+        db.insert(TABLE_COR, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Vermelho");
+        db.insert(TABLE_COR, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Preto");
+        db.insert(TABLE_COR, null, cv);
+        cv.clear();
+    }
+
+    private void criarCategoriasParaTestes(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+
+        cv.put("descricao", "Eletrônicos");
+        db.insert(TABLE_CATEGORIA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Eletrodomésticos");
+        db.insert(TABLE_CATEGORIA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Games");
+        db.insert(TABLE_CATEGORIA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Livros");
+        db.insert(TABLE_CATEGORIA, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Brinquedos");
+        db.insert(TABLE_CATEGORIA, null, cv);
+        cv.clear();
+    }
+
+    private void criarProdutosParaTestes(SQLiteDatabase db) {
+        ContentValues cv = new ContentValues();
+
+        cv.put("descricao", "Notebook");
+        db.insert(TABLE_PRODUTO, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Geladeira");
+        db.insert(TABLE_PRODUTO, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "PlayStation 5");
+        db.insert(TABLE_PRODUTO, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Livro - Código limpo");
+        db.insert(TABLE_PRODUTO, null, cv);
+        cv.clear();
+
+        cv.put("descricao", "Urso de pelucia");
+        db.insert(TABLE_PRODUTO, null, cv);
+        cv.clear();
+    }
 }
