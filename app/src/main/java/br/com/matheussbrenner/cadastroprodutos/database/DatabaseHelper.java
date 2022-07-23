@@ -19,7 +19,7 @@ import br.com.matheussbrenner.cadastroprodutos.produtos.Produto;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "cadastroprodutos";
+    private static final String DATABASE_NAME = "cadastroprodutos2";
 
     private static final String TABLE_MARCA = "marca";
     private static final String TABLE_COR = "cor";
@@ -46,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "id_cor INTEGER, " +
             "CONSTRAINT fk_produto_categoria FOREIGN KEY (id_categoria) REFERENCES categoria (id), " +
             "CONSTRAINT fk_produto_marca FOREIGN KEY (id_marca) REFERENCES marca (id), " +
-            "CONSTRAINT fk_produto_cor FOREIGN KEY (id_cor) REFERENCES cor (id))";
+            "CONSTRAINT fk_produto_cor FOREIGN KEY (id_cor) REFERENCES cor (id)); ";
 
     private static final String DROP_TABLE_MARCA = "DROP TABLE IF EXISTS " + TABLE_MARCA;
     private static final String DROP_TABLE_COR = "DROP TABLE IF EXISTS " + TABLE_COR;
@@ -236,6 +236,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("descricao", p.getDescricao());
+        cv.put("id_categoria", p.getId_categoria());
+        cv.put("id_marca", p.getId_marca());
+        cv.put("id_cor", p.getId_cor());
         long id = db.update(TABLE_PRODUTO, cv,"_id = ?", new String[]{String.valueOf(p.getId())});
         db.close();
         return id;
@@ -257,13 +260,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public Produto getByIdProduto (int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] columns = {"_id", "descricao"};
+        String[] columns = {"_id", "descricao", "id_categoria", "id_cor", "id_marca"};
         String[] args = {String.valueOf(id)};
         Cursor data = db.query(TABLE_PRODUTO, columns, "_id = ?", args,null, null, null);
         data.moveToFirst();
         Produto p = new Produto();
         p.setId(data.getInt(0));
         p.setDescricao(data.getString(1));
+        p.setId_categoria(data.getInt(2));
+        p.setId_cor(data.getInt(3));
+        p.setId_marca(data.getInt(4));
         data.close();
         db.close();
         return p;
@@ -346,22 +352,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
 
         cv.put("descricao", "Notebook");
+        cv.put("id_cor", "1");
+        cv.put("id_categoria", "1");
+        cv.put("id_marca", "1");
         db.insert(TABLE_PRODUTO, null, cv);
         cv.clear();
 
         cv.put("descricao", "Geladeira");
+        cv.put("id_cor", "1");
+        cv.put("id_categoria", "1");
+        cv.put("id_marca", "1");
         db.insert(TABLE_PRODUTO, null, cv);
         cv.clear();
 
         cv.put("descricao", "PlayStation 5");
+        cv.put("id_cor", "1");
+        cv.put("id_categoria", "1");
+        cv.put("id_marca", "1");
         db.insert(TABLE_PRODUTO, null, cv);
         cv.clear();
 
         cv.put("descricao", "Livro - Código limpo");
+        cv.put("id_cor", "1");
+        cv.put("id_categoria", "1");
+        cv.put("id_marca", "1");
         db.insert(TABLE_PRODUTO, null, cv);
         cv.clear();
 
         cv.put("descricao", "Urso de pelucia");
+        cv.put("id_cor", "1");
+        cv.put("id_categoria", "1");
+        cv.put("id_marca", "1");
         db.insert(TABLE_PRODUTO, null, cv);
         cv.clear();
     }
