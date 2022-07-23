@@ -43,14 +43,12 @@ tools:context=".produtos.AdicionarFragment">
             android:paddingTop="10dp"
             android:text="@string/marca" />
 
-        <EditText
-            android:id="@+id/editText_marca_produto"
+        <Spinner
+            android:id="@+id/spinnerMarca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:enabled="false"
-            android:text="Ainda não implementado!"/>
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -58,14 +56,12 @@ tools:context=".produtos.AdicionarFragment">
             android:paddingTop="10dp"
             android:text="@string/cor" />
 
-        <EditText
-            android:id="@+id/editText_cor_produto"
+        <Spinner
+            android:id="@+id/spinnerCor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:enabled="false"
-            android:text="Ainda não implementado!"/>
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -73,19 +69,18 @@ tools:context=".produtos.AdicionarFragment">
             android:paddingTop="10dp"
             android:text="@string/categoria" />
 
-        <EditText
-            android:id="@+id/editText_categoria_produto"
+        <Spinner
+            android:id="@+id/spinnerCategoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:enabled="false"
-            android:text="Ainda não implementado!"/>
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/button_adicionar_produto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:text="@string/salvar" />
 
     </LinearLayout>
